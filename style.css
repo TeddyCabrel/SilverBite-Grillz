@@ -1,0 +1,308 @@
+
+body {
+    background-color: #CBCBCB;
+    margin: 0;
+    font-size: 14px;
+    color: #2E373A;
+    font-family: "Noto Serif JP", serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+main {
+    width: min(1400px, 100vw);
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    font-family: "Noto Serif JP", serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 40px;
+}
+
+.banner .content {
+    font-family: "Odibee Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.banner .content h1 {
+    font-size: 17em;
+    mix-blend-mode: multiply;
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+
+}
+
+.banner .content .right {
+    text-align: right;
+    transform: translateY(-30px);
+}
+
+.banner .content .right h2 {
+    font-size: 7em;
+    font-weight: 200;
+}
+
+.backgroundMenu {
+    position: absolute;
+    top: 56%;
+    z-index: -6;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    border: solid black 3px;
+    height: 60%;
+    background-image: url(images/backgroundMetal.jpg);
+}
+
+.banner .image {
+    margin-top: 70px;
+    width: 100%;
+    height: 500px;
+    border-radius: 30px;
+    position: relative;
+}
+
+.banner .image img {
+    position: absolute;
+    height: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+}
+
+.barbed-wire {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+}
+.barberd-wire-container{
+    display: none;
+}
+
+.golden-grillz {
+    position: absolute;
+    width: 30%;
+
+}
+
+.WireHeader {
+    z-index: 10;
+    width: 100vw;
+}
+
+.Product {
+    pointer-events: none;
+    position: relative;
+    height: 70vh;
+}
+
+.introduction {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 10%;
+}
+
+
+.introduction img {
+    max-width: 100%;
+    height: auto;
+    border: solid 10px black;
+    animation: introAppear;
+    animation-timeline: view(80% auto);
+}
+.container-image-introduction{
+    display: flex;
+    flex-direction: column;
+}
+
+.introduction img:hover {
+    filter: blur(10px);
+    transition: all ease-in-out 0.2s;
+}
+
+.golden-grillz.right {
+    border: none;
+    pointer-events: none;
+    left: -18%;
+    bottom: -168%;
+    animation: introAppear;
+    animation-timeline: view(80% auto);
+}
+.golden-grillz.left {
+    pointer-events:none ;
+    left: 32%;
+    bottom: -360%;
+    animation: introAppear;
+    animation-timeline: view(100% auto);
+}
+.titleImage{
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    max-width: 590px;
+}
+.titleImage h1{
+    font-size: 9em;
+    z-index: 10;
+    text-transform: uppercase;
+    
+}
+.blurOut.one {
+    filter: blur(30px);
+    animation: blurOut1 2.7s ease-in-out forwards;
+    animation-timeline: view(60% auto);
+}
+
+.blurOut.two {
+    filter: blur(30px);
+    animation: blurOut1 2.7s ease-in-out forwards;
+    animation-timeline: view(60% auto);
+}
+
+.blurOut.three {
+    filter: blur(30px);
+    animation: blurOut1 2.7s ease-in-out forwards;
+    animation-timeline: view(60% auto);
+}
+
+.blurOut.four {
+    filter: blur(30px);
+    animation: blurOut1 2.7s ease-in-out forwards;
+    animation-timeline: view(60% auto);
+}
+
+
+.contentImage{
+    display: flex;
+  
+text-align: end;
+    max-width: 690px;
+}
+.contentImage p{
+    font-size: 3.5em;
+    line-height: 1;
+    margin-left: 100px;
+    margin-top: 20px;
+    animation: textSlideLeft;
+    animation-timeline: view(80% auto);
+
+}
+
+
+.barbed-wire.autoRotate {
+    animation: growAndRotate;
+    animation-timeline: view();
+}
+
+.barbed-wire.autoRotateInverse {
+    animation: growAndRotateInverse;
+    animation-timeline: view();
+}
+@keyframes  blurOut1 {
+    from{
+        filter: blur(30px);
+    
+
+    }
+    to{
+        filter: blur(0px);
+       
+    }
+    
+}
+@keyframes textSlideLeft{
+    from{
+        transform: translateX(-200px);
+    
+
+    }
+    to{
+        transform: translateX(0);
+       
+    }
+    
+}
+
+
+@keyframes growAndRotate {
+    from {
+        transform: translate(-50%, 200px) scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, 0) scale(0) rotate(360deg);
+    }
+}
+
+@keyframes growAndRotateInverse {
+    from {
+        transform: translate(-50%, 200px) scale(1) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, 0) scale(0) rotate(0deg);
+    }
+}
+
+@keyframes leftAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes rightAppear {
+    from {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes introAppear {
+    from {
+
+        transform: translateY(300px) scale(0.3);
+
+    }
+
+    to {
+
+        transform: translateY(0) scale(1);
+    }
+}
