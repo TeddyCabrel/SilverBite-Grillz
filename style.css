@@ -195,18 +195,19 @@ header img {
     --height: 400px;
     --number-item: 8;
     width: 100%;
-    height: var(--height);
-
+    height: 600px;
     overflow: hidden;
     mask-image: linear-gradient(
         to right,
         transparent,
-        #000 5% 95%,
+        #630c0c 5% 95%,
         transparent
     );
 }
 
 .slider .list {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
     display: flex;
     width: 100%;
     min-width: calc(var(--width)* var(--number-item));
@@ -217,10 +218,42 @@ header img {
     width: var(--width);
     height: var(--height);
     position: absolute;
+    transition: .5s;
+    filter:brightness(1);
     left: 100%;
     animation: autoRun 10s linear infinite;
     animation-delay: calc( (10s / var(--number-item))* (var(--position) - 1) ) ;
 }
+.slider .list .item:hover{
+    transform: translateZ(90px);
+}
+
+.slider .list .item:hover + *{
+    filter: brightness(0.4);
+    transform: translateZ(30px);
+}
+.slider .list .item:hover + * + *{
+    filter: brightness(0.4);
+    transform: translateZ(20px);
+}
+.slider .list .item:hover + *+ * + *{
+    filter: brightness(0.4);
+    transform: translateZ(10px);
+}
+
+.slider .list .item:has( + *:hover){
+    filter: brightness(0.4);
+    transform:translateZ(100px);
+}
+.slider .list .item:has( + * + *:hover){
+    filter: brightness(0.4);
+    transform: translateZ(100px);
+}
+.slider .list .item:has( + * + * + *:hover){
+    filter: brightness(0.4);
+    transform:translateZ(100px);
+}
+
 
 
 
@@ -230,6 +263,9 @@ header img {
     border: solid 0px black;
 }
 
+.slider .list .item img:hover .slider .list .item{
+    animation-play-state: paused;
+}
 
 
 
@@ -309,10 +345,11 @@ header img {
 }
 @keyframes autoRun {
     from{
-        left:100%;
+        left: calc(var(--width) * -1);
     }
+    
     to{
-        left: calc(var(--width) * -1)
+        left:100%;
     }
     
 }
