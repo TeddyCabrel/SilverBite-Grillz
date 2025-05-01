@@ -1,3 +1,8 @@
+/* Reset et styles globaux */
+* {
+    padding: 0;
+    margin: 0;
+}
 
 body {
     background-color: #CBCBCB;
@@ -5,20 +10,17 @@ body {
     font-size: 14px;
     color: #2E373A;
     font-family: "Noto Serif JP", serif;
+    padding-bottom: 0;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-
-}
-
+/* Layout principal */
 main {
     width: min(1400px, 100vw);
     margin: auto;
     padding: 20px;
 }
 
+/* Header */
 header {
     font-family: "Noto Serif JP", serif;
     display: flex;
@@ -31,13 +33,13 @@ header img {
     height: 40px;
 }
 
+/* Section Bannière */
 .banner .content {
     font-family: "Odibee Sans", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
 }
 
 .banner .content h1 {
@@ -45,7 +47,6 @@ header img {
     mix-blend-mode: multiply;
     font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
-
 }
 
 .banner .content .right {
@@ -56,19 +57,6 @@ header img {
 .banner .content .right h2 {
     font-size: 7em;
     font-weight: 200;
-}
-
-.backgroundMenu {
-    position: absolute;
-    top: 56%;
-    z-index: -6;
-
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    border: solid black 3px;
-    height: 60%;
-    background-image: url(images/backgroundMetal.jpg);
 }
 
 .banner .image {
@@ -87,185 +75,186 @@ header img {
     bottom: 0px;
 }
 
-.barbed-wire {
+/* Background menu */
+.backgroundMenu {
     position: absolute;
-    top: 0%;
+    top: 56%;
+    z-index: -6;
     left: 50%;
-    width: 70%;
-    transform: translateX(-50%);
-}
-.barberd-wire-container{
-    display: none;
-}
-
-.golden-grillz {
-    position: absolute;
-    width: 30%;
-
+    transform: translate(-50%, -50%);
+    width: 80%;
+    border: solid black 3px;
+    height: 60%;
+    background-image: url(images/backgroundMetal.jpg);
 }
 
-.WireHeader {
-    z-index: 10;
-    width: 100vw;
-}
-
+/* Section Produits */
 .Product {
-    pointer-events: none;
     position: relative;
-    height: 70vh;
+    min-height: 50vh;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
+/* Section Introduction */
 .introduction {
     text-align: center;
     position: relative;
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: row;
     gap: 30px;
+    margin-bottom: 50px;
     margin-top: 10%;
 }
 
+.container-image-introduction {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 
-.introduction img {
+.introduction .imgProduit {
     max-width: 100%;
     height: auto;
     border: solid 10px black;
     animation: introAppear;
     animation-timeline: view(80% auto);
 }
-.container-image-introduction{
-    display: flex;
-    flex-direction: column;
-}
 
-.introduction img:hover {
+.introduction .imgProduit:hover {
     filter: blur(10px);
     transition: all ease-in-out 0.2s;
 }
 
-.golden-grillz.right {
-    border: none;
-    pointer-events: none;
-    left: -18%;
-    bottom: -168%;
-    animation: introAppear;
-    animation-timeline: view(80% auto);
-}
-.golden-grillz.left {
-    pointer-events:none ;
-    left: 32%;
-    bottom: -360%;
-    animation: introAppear;
-    animation-timeline: view(100% auto);
-}
-.titleImage{
+.titleImage {
     display: flex;
     justify-content: center;
-
     align-items: center;
     max-width: 590px;
 }
-.titleImage h1{
+
+.titleImage h1 {
     font-size: 9em;
-    z-index: 10;
     text-transform: uppercase;
-    
-}
-.blurOut.one {
-    filter: blur(30px);
-    animation: blurOut1 2.7s ease-in-out forwards;
-    animation-timeline: view(60% auto);
 }
 
-.blurOut.two {
-    filter: blur(30px);
-    animation: blurOut1 2.7s ease-in-out forwards;
-    animation-timeline: view(60% auto);
-}
-
-.blurOut.three {
-    filter: blur(30px);
-    animation: blurOut1 2.7s ease-in-out forwards;
-    animation-timeline: view(60% auto);
-}
-
-.blurOut.four {
-    filter: blur(30px);
-    animation: blurOut1 2.7s ease-in-out forwards;
-    animation-timeline: view(60% auto);
-}
-
-
-.contentImage{
+.contentImage {
     display: flex;
-  
-text-align: end;
+    text-align: end;
     max-width: 690px;
 }
-.contentImage p{
+
+.contentImage p {
     font-size: 3.5em;
     line-height: 1;
     margin-left: 100px;
     margin-top: 20px;
     animation: textSlideLeft;
     animation-timeline: view(80% auto);
-
 }
 
+/* Éléments décoratifs */
+
+
+.golden-grillz {
+    position: absolute;
+    width: 30%;
+}
+
+.golden-grillz.right {
+    width: 50%;
+    border: none;
+    pointer-events: none;
+    left: -130%;
+    bottom: -160%;
+    animation: introAppear both;
+    animation-timeline: view(80% auto);
+}
+
+.golden-grillz.left {
+    width: 60%;
+    pointer-events: none;
+    border: none;
+    left: -50%;
+    bottom: -210%;
+    animation: introAppear both;
+    animation-timeline: view(100% auto);
+}
+
+/* Classes d'animation */
+.blurOut.one,
+.blurOut.two,
+.blurOut.three,
+.blurOut.four {
+    filter: blur(30px);
+    animation: blurOut1 2.7s ease-in-out forwards ;
+    animation-timeline: view(60% auto);
+}
+.barbed-wire {
+    position: absolute;
+    bottom: 40%;
+    left: 00%;
+    width: 100%;
+    transform: translateX(-50%);
+}
 
 .barbed-wire.autoRotate {
-    animation: growAndRotate;
+    animation: growAndRotate both;
     animation-timeline: view();
 }
 
 .barbed-wire.autoRotateInverse {
-    animation: growAndRotateInverse;
+    animation: growAndRotateInverse both;
     animation-timeline: view();
 }
-@keyframes  blurOut1 {
-    from{
+
+/* Section 3 */
+.titleSection3 {
+    font-size: 50px;
+}
+
+.slider{
+    position: relative;
+}
+
+/* Keyframes */
+@keyframes blurOut1 {
+    from {
         filter: blur(30px);
-    
-
     }
-    to{
+    to {
         filter: blur(0px);
-       
     }
-    
 }
-@keyframes textSlideLeft{
-    from{
+
+@keyframes textSlideLeft {
+    from {
         transform: translateX(-200px);
-    
-
     }
-    to{
+    to {
         transform: translateX(0);
-       
     }
-    
 }
-
 
 @keyframes growAndRotate {
     from {
-        transform: translate(-50%, 200px) scale(1) rotate(0deg);
+        transform: rotate(0deg);
     }
-
     to {
-        transform: translate(-50%, 0) scale(0) rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
 @keyframes growAndRotateInverse {
     from {
-        transform: translate(-50%, 200px) scale(1) rotate(360deg);
+        transform: rotate(360deg);
     }
-
     to {
-        transform: translate(-50%, 0) scale(0) rotate(0deg);
+        transform:rotate(0deg);
     }
 }
 
@@ -274,20 +263,17 @@ text-align: end;
         opacity: 0;
         transform: translateX(-400px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-
 @keyframes rightAppear {
     from {
         opacity: 0;
         transform: translateX(400px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0);
@@ -296,13 +282,9 @@ text-align: end;
 
 @keyframes introAppear {
     from {
-
         transform: translateY(300px) scale(0.3);
-
     }
-
     to {
-
         transform: translateY(0) scale(1);
     }
 }
