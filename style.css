@@ -146,7 +146,7 @@ header img {
     margin-left: 100px;
     margin-top: 20px;
     animation: textSlideLeft;
-    animation-timeline: view(10% auto);
+    animation-timeline: view(50% auto);
 }
 
 /* Éléments décoratifs(mouth with grils) */
