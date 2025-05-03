@@ -146,7 +146,7 @@ header img {
     margin-left: 100px;
     margin-top: 20px;
     animation: textSlideLeft;
-    animation-timeline: view(80% auto);
+    animation-timeline: view(10% auto);
 }
 
 /* Éléments décoratifs(mouth with grils) */
@@ -162,7 +162,7 @@ header img {
     border: none;
     pointer-events: none;
     left: -130%;
-    bottom: -160%;
+    bottom: 0%;
     animation: introAppear both;
     animation-timeline: view(80% auto);
 }
@@ -171,8 +171,8 @@ header img {
     width: 60%;
     pointer-events: none;
     border: none;
-    left: -50%;
-    bottom: -210%;
+    left: -45%;
+    bottom: 0%;
     animation: introAppear both;
     animation-timeline: view(100% auto);
 }
@@ -195,15 +195,16 @@ header img {
     --height: 400px;
     --number-item: 8;
     width: 100%;
-    height: 600px;
+    height: var(--height);
     overflow: hidden;
     mask-image: linear-gradient(
         to right,
         transparent,
-        #630c0c 5% 95%,
+        #faf3f3 10% 90%,
         transparent
     );
 }
+
 
 .slider .list {
     transform-style: preserve-3d;
@@ -224,34 +225,59 @@ header img {
     animation: autoRun 10s linear infinite;
     animation-delay: calc( (10s / var(--number-item))* (var(--position) - 1) ) ;
 }
-.slider .list .item:hover{
-    transform: translateZ(90px);
+.item.first:hover ~ .item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+  }
+
+  .item.last:hover ~ .item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+  }
+
+  .item.second:hover ~ .item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+  }
+  .item.second-last:hover ~ .item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+  }
+  .item.last:hover ~ .item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+  }
+ 
+
+/* Éléments suivants au hover (éléments après l'élément survolé) */
+.slider .list .item:hover + *,
+.slider .list .item:hover + * + *,
+.slider .list .item:hover + * + * + * {
+    transform: scale(0.98);
+    filter: brightness(0.4) blur(5px);
 }
 
-.slider .list .item:hover + *{
-    filter: brightness(0.4);
-    transform: translateZ(30px);
-}
-.slider .list .item:hover + * + *{
-    filter: brightness(0.4);
-    transform: translateZ(20px);
-}
-.slider .list .item:hover + *+ * + *{
-    filter: brightness(0.4);
-    transform: translateZ(10px);
+/* Éléments précédents (ceux avant l'élément survolé) avec :has */
+.slider .list .item:has(+ *:hover),
+.slider .list .item:has(+ * + *:hover),
+.slider .list .item:has(+ * + * + *:hover) {
+    transform: scale(0.98);
+    filter: brightness(0.6) blur(5px);
 }
 
-.slider .list .item:has( + *:hover){
-    filter: brightness(0.4);
-    transform:translateZ(100px);
+.list:has(.item.last:hover) .item.first,
+.list:has(.item.last:hover) .item.first+ *,
+.list:has(.item.last:hover) .item.first+ *+*,
+.list:has(.item.last:hover) .item.first+ *+*+* {
+  filter: brightness(0.6) blur(5px);
+  transform: scale(0.98);
 }
-.slider .list .item:has( + * + *:hover){
-    filter: brightness(0.4);
-    transform: translateZ(100px);
-}
-.slider .list .item:has( + * + * + *:hover){
-    filter: brightness(0.4);
-    transform:translateZ(100px);
+.list:has(.item.item.second-last:hover) .item.first,
+.list:has(.item.item.second-last:hover) .item.first+ *,
+.list:has(.item.item.second-last:hover) .item.first+ *+*,
+.list:has(.item.item.second-last:hover) .item.first+ *+*+* {
+  filter: brightness(0.6) blur(5px);
+  transform: scale(0.98);
 }
 
 
@@ -263,10 +289,9 @@ header img {
     border: solid 0px black;
 }
 
-.slider .list .item img:hover .slider .list .item{
-    animation-play-state: paused;
+.slider:hover .item{
+    animation-play-state: paused!important;
 }
-
 
 
 /* Keyframes */
@@ -282,10 +307,14 @@ header img {
 
 @keyframes textSlideLeft {
     from {
+        opacity: 0;
+        filter: blur(30px);
         transform: translateX(-200px);
     }
 
     to {
+        opacity: 1;
+        filter: blur(0px);
         transform: translateX(0);
     }
 }
