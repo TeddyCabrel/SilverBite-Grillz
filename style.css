@@ -44,7 +44,7 @@ header img {
 }
 
 .banner .content h1 {
-    font-size: 17em;
+    font-size: 14vw;
     mix-blend-mode: multiply;
     font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
@@ -132,6 +132,7 @@ header img {
 .titleImage h1 {
     font-size: 9em;
     text-transform: uppercase;
+    mix-blend-mode:normal;
 }
 
 .contentImage {
@@ -146,6 +147,7 @@ header img {
     margin-left: 100px;
     margin-top: 20px;
     animation: textSlideLeft;
+    
     animation-timeline: view(50% auto);
 }
 
@@ -154,6 +156,7 @@ header img {
 
 .golden-grillz {
     position: absolute;
+    z-index: -1;
     width: 30%;
 }
 
@@ -382,3 +385,4 @@ header img {
     }
     
 }
+
