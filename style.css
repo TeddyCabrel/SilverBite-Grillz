@@ -9,7 +9,7 @@ body {
     background-color: #CBCBCB;
     margin: 0;
     font-size: 14px;
-    color: #2E373A;
+    color: rgb(0, 0, 0)f0f;
     font-family: "Noto Serif JP", serif;
     padding-bottom: 0;
 }
@@ -28,6 +28,12 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    text-decoration: none;
+}
+
+header h1 a {
+    color: black;
+    text-decoration: none;
 }
 
 header img {
@@ -103,7 +109,7 @@ header img {
 }
 
 .container-image-introduction {
-    
+
     display: flex;
     flex-direction: column;
     position: relative;
@@ -117,10 +123,7 @@ header img {
     animation-timeline: view(80% auto);
 }
 
-.introduction .imgProduit:hover {
-    filter: blur(10px);
-    transition: all ease-in-out 0.2s;
-}
+
 
 .titleImage {
     display: flex;
@@ -132,7 +135,7 @@ header img {
 .titleImage h1 {
     font-size: 9em;
     text-transform: uppercase;
-    mix-blend-mode:normal;
+    mix-blend-mode: normal;
 }
 
 .contentImage {
@@ -147,7 +150,7 @@ header img {
     margin-left: 100px;
     margin-top: 20px;
     animation: textSlideLeft;
-    
+
     animation-timeline: view(50% auto);
 }
 
@@ -200,12 +203,10 @@ header img {
     width: 100%;
     height: var(--height);
     overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        #faf3f3 10% 90%,
-        transparent
-    );
+    mask-image: linear-gradient(to right,
+            transparent,
+            #faf3f3 10% 90%,
+            transparent);
 }
 
 
@@ -223,39 +224,42 @@ header img {
     height: var(--height);
     position: absolute;
     transition: .5s;
-    filter:brightness(1);
+    filter: brightness(1);
     left: 100%;
     animation: autoRun 10s linear infinite;
-    animation-delay: calc( (10s / var(--number-item))* (var(--position) - 1) ) ;
+    animation-delay: calc((10s / var(--number-item))* (var(--position) - 1));
 }
-.item.first:hover ~ .item {
-    filter: brightness(0.6) blur(5px);
-    transform: scale(0.98);
-  }
 
-  .item.last:hover ~ .item {
+.item.first:hover~.item {
     filter: brightness(0.6) blur(5px);
     transform: scale(0.98);
-  }
+}
 
-  .item.second:hover ~ .item {
+.item.last:hover~.item {
     filter: brightness(0.6) blur(5px);
     transform: scale(0.98);
-  }
-  .item.second-last:hover ~ .item {
+}
+
+.item.second:hover~.item {
     filter: brightness(0.6) blur(5px);
     transform: scale(0.98);
-  }
-  .item.last:hover ~ .item {
+}
+
+.item.second-last:hover~.item {
     filter: brightness(0.6) blur(5px);
     transform: scale(0.98);
-  }
- 
+}
+
+.item.last:hover~.item {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
+}
+
 
 /* Éléments suivants au hover (éléments après l'élément survolé) */
-.slider .list .item:hover + *,
-.slider .list .item:hover + * + *,
-.slider .list .item:hover + * + * + * {
+.slider .list .item:hover+*,
+.slider .list .item:hover+*+*,
+.slider .list .item:hover+*+*+* {
     transform: scale(0.98);
     filter: brightness(0.4) blur(5px);
 }
@@ -269,18 +273,19 @@ header img {
 }
 
 .list:has(.item.last:hover) .item.first,
-.list:has(.item.last:hover) .item.first+ *,
-.list:has(.item.last:hover) .item.first+ *+*,
-.list:has(.item.last:hover) .item.first+ *+*+* {
-  filter: brightness(0.6) blur(5px);
-  transform: scale(0.98);
+.list:has(.item.last:hover) .item.first+*,
+.list:has(.item.last:hover) .item.first+*+*,
+.list:has(.item.last:hover) .item.first+*+*+* {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
 }
+
 .list:has(.item.item.second-last:hover) .item.first,
-.list:has(.item.item.second-last:hover) .item.first+ *,
-.list:has(.item.item.second-last:hover) .item.first+ *+*,
-.list:has(.item.item.second-last:hover) .item.first+ *+*+* {
-  filter: brightness(0.6) blur(5px);
-  transform: scale(0.98);
+.list:has(.item.item.second-last:hover) .item.first+*,
+.list:has(.item.item.second-last:hover) .item.first+*+*,
+.list:has(.item.item.second-last:hover) .item.first+*+*+* {
+    filter: brightness(0.6) blur(5px);
+    transform: scale(0.98);
 }
 
 
@@ -292,8 +297,8 @@ header img {
     border: solid 0px black;
 }
 
-.slider:hover .item{
-    animation-play-state: paused!important;
+.slider:hover .item {
+    animation-play-state: paused !important;
 }
 
 
@@ -375,14 +380,97 @@ header img {
         transform: translateY(0) scale(1);
     }
 }
+
 @keyframes autoRun {
-    from{
+    from {
         left: calc(var(--width) * -1);
     }
-    
-    to{
-        left:100%;
+
+    to {
+        left: 100%;
     }
-    
+
 }
 
+.list-product img {
+    border: solid black 5px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 1em;
+    animation: introAppear;
+    animation-timeline: view(95% auto);
+}
+
+.list-product {
+    padding-top: 2em;
+    columns: 300px;
+}
+
+@media screen and (max-width:770px) {
+    .introduction {
+        flex-direction: column;
+    }
+
+    .golden-grillz.left {
+        left: -25%;
+    }
+
+
+
+    main {
+        width: auto;
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .backgroundMenu {
+        top: 36%;
+        height: 40%;
+    }
+
+    .banner .image img {
+        height: 100%;
+
+        bottom: 20%;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .banner .image {
+        height: 300px;
+    }
+
+    .banner .image img {
+        height: 100%;
+        bottom: 0%;
+    }
+
+    .backgroundMenu {
+        height: 36%;
+    }
+}
+
+@media screen and (max-width:510px) {
+    header {
+        font-size: 0.5rem;
+    }
+
+    .titleImage h1 {
+        font-size: 8em;
+    }
+
+    header img {
+        height: 15px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .banner .image img {
+        height: 90%;
+        bottom: 30%;
+    }
+
+    header img {
+        height: 10px;
+    }
+}

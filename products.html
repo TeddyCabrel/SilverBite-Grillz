@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS-SilverBite-Grillz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="index.html">SILVERBITE</a></h1>
+            <img src="images/barreCode.png" alt="">
+            <h1><a href="products.html">GRILLZ</a></h1>
+        </header>
+        <div class="list-product">
+            <!-- img[src="images/productImage/Image$.jpg"]*50 -->
+            <img src="images/productImage/Image1.jpg" alt=""><img src="images/productImage/Image2.jpg" alt=""><img src="images/productImage/Image3.jpg" alt=""><img src="images/productImage/Image4.jpg" alt=""><img src="images/productImage/Image5.jpg" alt=""><img src="images/productImage/Image6.jpg" alt=""><img src="images/productImage/Image7.jpg" alt=""><img src="images/productImage/Image8.jpg" alt=""><img src="images/productImage/Image9.jpg" alt=""><img src="images/productImage/Image10.jpg" alt=""><img src="images/productImage/Image11.jpg" alt=""><img src="images/productImage/Image12.jpg" alt=""><img src="images/productImage/Image13.jpg" alt=""><img src="images/productImage/Image14.jpg" alt=""><img src="images/productImage/Image15.jpg" alt=""><img src="images/productImage/Image16.jpg" alt=""><img src="images/productImage/Image17.jpg" alt=""><img src="images/productImage/Image18.jpg" alt=""><img src="images/productImage/Image19.jpg" alt=""><img src="images/productImage/Image20.jpg" alt=""><img src="images/productImage/Image21.jpg" alt=""><img src="images/productImage/Image22.jpg" alt=""><img src="images/productImage/Image23.jpg" alt=""><img src="images/productImage/Image24.jpg" alt=""><img src="images/productImage/Image25.jpg" alt=""><img src="images/productImage/Image26.jpg" alt=""><img src="images/productImage/Image27.jpg" alt=""><img src="images/productImage/Image28.jpg" alt=""><img src="images/productImage/Image29.jpg" alt=""><img src="images/productImage/Image30.jpg" alt=""><img src="images/productImage/Image31.jpg" alt=""><img src="images/productImage/Image32.jpg" alt=""><img src="images/productImage/Image33.jpg" alt=""><img src="images/productImage/Image34.jpg" alt=""><img src="images/productImage/Image35.jpg" alt=""><img src="images/productImage/Image36.jpg" alt=""><img src="images/productImage/Image37.jpg" alt=""><img src="images/productImage/Image38.jpg" alt=""><img src="images/productImage/Image39.jpg" alt=""><img src="images/productImage/Image40.jpg" alt=""><img src="images/productImage/Image41.jpg" alt=""><img src="images/productImage/Image42.jpg" alt=""><img src="images/productImage/Image43.jpg" alt=""><img src="images/productImage/Image44.jpg" alt=""><img src="images/productImage/Image45.jpg" alt=""><img src="images/productImage/Image46.jpg" alt="">
+            
+        </div>
+        </main>
+</body>
+<script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+<script>
+    const lenis = new Lenis({
+        duration: 3.2,         // Augmente la durée du scroll pour plus de fluidité (default est 1.0)
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        smoothTouch: false
+    })
+
+    function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+</script>
+</html>
