@@ -2,7 +2,7 @@
   "name": "silverbite-grillz",
   "version": "1.0.0",
   "description": "Website Showcasing a Store's Grillz Collection",
-  "main": "main.js",
+  "main": "index.html",
   "scripts": {
     "start": "vite",
     "build": "npx vite build",

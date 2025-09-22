@@ -92,7 +92,7 @@ header img {
     width: 80%;
     border: solid black 3px;
     height: 60%;
-    background-image: url(images/backgroundMetal.jpg);
+    background-image: url(/images/backgroundMetal.jpg);
 }
 
 
